@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:29:53 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/26 19:08:05 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/04/26 19:35:18 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <exception>
 # include <iostream>
 
-# define TEST_DECL()	static struct test __tests[] =
+# define TEST_DECL()	static struct test const __tests[] =
 # define TEST(x)		{#x, x},
 # define TEST_RUN()		{								\
 	for (												\

@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 20:25:32 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 22:02:23 by bbrassar         ###   ########.fr       */
+/*   Created: 2022/04/28 21:50:16 by bbrassar          #+#    #+#             */
+/*   Updated: 2022/04/28 21:52:37 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 # include <string>
 
-class ScavTrap : public virtual ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
 	static std::string const	DEFAULT_NAME;
 	static std::string const	PREFIX;
 
 	public:
-	ScavTrap(void);
-	ScavTrap(ScavTrap const &x);
-	ScavTrap(std::string const &name);
-	virtual ~ScavTrap();
+	DiamondTrap(void);
+	DiamondTrap(DiamondTrap const &x);
+	~DiamondTrap();
 
-	ScavTrap		&operator=(ScavTrap const &x);
+	DiamondTrap	&operator=(DiamondTrap const &x);
 
 	public:
-	virtual void	attack(std::string const &target);
-	void			guardGate(void);
-}; // class ScavTrap
 
-#endif // SCAVTRAP_HPP
+}; // class DiamondTrap
+
+#endif // DIAMONDTRAP_HPP

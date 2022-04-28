@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:50:02 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 20:53:55 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:02:19 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	private:
 	static std::string const	DEFAULT_NAME;
@@ -25,7 +25,7 @@ class FragTrap : public ClapTrap
 	FragTrap(void);
 	FragTrap(FragTrap const &x);
 	FragTrap(std::string const &name);
-	~FragTrap();
+	virtual ~FragTrap();
 
 	FragTrap	&operator=(FragTrap const &x);
 

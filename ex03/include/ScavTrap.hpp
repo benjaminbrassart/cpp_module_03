@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:25:32 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 20:40:24 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:02:23 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ClapTrap.hpp"
 # include <string>
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 	private:
 	static std::string const	DEFAULT_NAME;
@@ -26,7 +26,7 @@ class ScavTrap : public ClapTrap
 	ScavTrap(void);
 	ScavTrap(ScavTrap const &x);
 	ScavTrap(std::string const &name);
-	~ScavTrap();
+	virtual ~ScavTrap();
 
 	ScavTrap		&operator=(ScavTrap const &x);
 

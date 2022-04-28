@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 17:54:40 by bbrassar          #+#    #+#              #
-#    Updated: 2022/04/28 20:36:06 by bbrassar         ###   ########.fr        #
+#    Updated: 2022/04/28 20:55:16 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CXXFLAGS				+= -std=c++98
 DIR_SRC					= src
 DIR_OBJ					= obj
 
-SRC						= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC						= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ						= $(SRC:%.cpp=$(DIR_OBJ)/%.o)
 DEP						= $(OBJ:.o=.d)
 

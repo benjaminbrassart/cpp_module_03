@@ -6,82 +6,146 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:29:22 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 20:44:55 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/04/28 21:49:10 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../tests.h"
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 static void	_constructor_default0(void);
 static void	_constructor_default1(void);
-static void	_constructor_copy(void);
-static void	_operator_copy(void);
+static void	_constructor_default2(void);
+static void	_constructor_default3(void);
+static void	_constructor_copy0(void);
+static void	_constructor_copy1(void);
+static void	_constructor_copy2(void);
+static void	_operator_copy0(void);
+static void	_operator_copy1(void);
+static void	_operator_copy2(void);
 static void	_attack0(void);
 static void	_attack1(void);
 static void	_attack2(void);
+static void	_attack3(void);
+static void	_attack4(void);
 static void	_repair0(void);
 static void	_repair1(void);
 static void	_repair2(void);
+static void	_repair3(void);
+static void	_repair4(void);
 static void	_damage0(void);
 static void	_damage1(void);
 static void	_damage2(void);
+static void	_damage3(void);
+static void	_damage4(void);
 static void	_guard(void);
+static void	_highfive(void);
 
 int	main(void)
 {
 	TEST_DECL() {
 		TEST(_constructor_default0)
 		TEST(_constructor_default1)
-		TEST(_constructor_copy)
-		TEST(_operator_copy)
+		TEST(_constructor_default2)
+		TEST(_constructor_default3)
+		TEST(_constructor_copy0)
+		TEST(_constructor_copy1)
+		TEST(_constructor_copy2)
+		TEST(_operator_copy0)
+		TEST(_operator_copy1)
+		TEST(_operator_copy2)
 		TEST(_attack0)
 		TEST(_attack1)
 		TEST(_attack2)
+		TEST(_attack3)
+		TEST(_attack4)
 		TEST(_repair0)
 		TEST(_repair1)
 		TEST(_repair2)
+		TEST(_repair3)
+		TEST(_repair4)
 		TEST(_damage0)
 		TEST(_damage1)
 		TEST(_damage2)
+		TEST(_damage3)
+		TEST(_damage4)
 		TEST(_guard)
+		TEST(_highfive)
 	};
 	TEST_RUN();
 }
 
 static void	_constructor_default0(void)
 {
-	ScavTrap();
+	ClapTrap();
 }
 
 static void	_constructor_default1(void)
 {
+	ClapTrap("coucou");
+}
+
+static void	_constructor_default2(void)
+{
 	ScavTrap("coucou");
 }
 
-static void	_constructor_copy(void)
+static void	_constructor_default3(void)
+{
+	FragTrap("coucou");
+}
+
+static void	_constructor_copy0(void)
+{
+	ClapTrap	c("bonjour");
+	ClapTrap	copy(c);
+}
+
+static void	_constructor_copy1(void)
 {
 	ScavTrap	c("bonjour");
 	ScavTrap	copy(c);
 }
 
-static void	_operator_copy(void)
+static void	_constructor_copy2(void)
+{
+	FragTrap	c("bonjour");
+	FragTrap	copy(c);
+}
+
+static void	_operator_copy0(void)
+{
+	ClapTrap	c;
+
+	c = ClapTrap("salut");
+}
+
+static void	_operator_copy1(void)
 {
 	ScavTrap	c;
 
 	c = ScavTrap("salut");
 }
 
+static void	_operator_copy2(void)
+{
+	FragTrap	c;
+
+	c = FragTrap("salut");
+}
+
 static void	_attack0(void)
 {
-	ScavTrap c("hello");
+	ClapTrap c("hello");
 
 	c.attack("123");
 }
 
 static void	_attack1(void)
 {
-	ScavTrap c("hello");
+	ClapTrap c("hello");
 
 	c.attack("123");
 	c.attack("123");
@@ -91,21 +155,35 @@ static void	_attack1(void)
 
 static void	_attack2(void)
 {
+	ClapTrap c("hello");
+	for (int i = 0; i < 30; ++i)
+		c.attack("123");
+}
+
+static void	_attack3(void)
+{
 	ScavTrap c("hello");
+	for (int i = 0; i < 30; ++i)
+		c.attack("123");
+}
+
+static void	_attack4(void)
+{
+	FragTrap c("hello");
 	for (int i = 0; i < 30; ++i)
 		c.attack("123");
 }
 
 static void	_repair0(void)
 {
-	ScavTrap c("hello");
+	ClapTrap c("hello");
 
 	c.beRepaired(12);
 }
 
 static void	_repair1(void)
 {
-	ScavTrap c("hello");
+	ClapTrap c("hello");
 
 	c.beRepaired(12);
 	c.beRepaired(15);
@@ -114,7 +192,27 @@ static void	_repair1(void)
 
 static void	_repair2(void)
 {
+	ClapTrap c("hello");
+
+	c.beRepaired(12);
+	c.takeDamage(44);
+	c.beRepaired(15);
+	c.beRepaired(1);
+}
+
+static void	_repair3(void)
+{
 	ScavTrap c("hello");
+
+	c.beRepaired(12);
+	c.takeDamage(44);
+	c.beRepaired(15);
+	c.beRepaired(1);
+}
+
+static void	_repair4(void)
+{
+	FragTrap c("hello");
 
 	c.beRepaired(12);
 	c.takeDamage(44);
@@ -125,7 +223,7 @@ static void	_repair2(void)
 static void	_damage0(void)
 {
 
-	ScavTrap c("hello");
+	ClapTrap c("hello");
 
 	c.takeDamage(1);
 }
@@ -133,7 +231,7 @@ static void	_damage0(void)
 static void	_damage1(void)
 {
 
-	ScavTrap c("hello");
+	ClapTrap c("hello");
 
 	c.takeDamage(1);
 	c.takeDamage(2);
@@ -144,7 +242,23 @@ static void	_damage1(void)
 static void	_damage2(void)
 {
 
+	ClapTrap c("hello");
+
+	c.takeDamage(44);
+	c.takeDamage(44);
+}
+
+static void	_damage3(void)
+{
 	ScavTrap c("hello");
+
+	c.takeDamage(44);
+	c.takeDamage(44);
+}
+
+static void	_damage4(void)
+{
+	FragTrap c("hello");
 
 	c.takeDamage(44);
 	c.takeDamage(44);
@@ -155,4 +269,11 @@ static void	_guard(void)
 	ScavTrap c("hai");
 
 	c.guardGate();
+}
+
+static void	_highfive(void)
+{
+	FragTrap c("hai");
+
+	c.highFiveGuys();
 }

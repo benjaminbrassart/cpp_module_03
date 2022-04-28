@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:58:26 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/26 19:29:15 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/04/28 20:27:52 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ class ClapTrap
 	private:
 	static std::string const	DEFAULT_NAME;
 	static std::string const	PREFIX;
+	protected:
 	static std::string const	RED;
 	static std::string const	GREEN;
 	static std::string const	BLUE;
 	static std::string const	RESET;
 
-	private:
+	protected:
 	std::string		name;
 	unsigned int	hitPoints;
 	unsigned int	energyPoints;
@@ -36,12 +37,12 @@ class ClapTrap
 	ClapTrap(void);
 	ClapTrap(ClapTrap const &x);
 	ClapTrap(std::string const &name);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	ClapTrap			&operator=(ClapTrap const &x);
 
 	public:
-	void				attack(std::string const &target);
+	virtual void		attack(std::string const &target);
 	void				takeDamage(unsigned int amount);
 	void				beRepaired(unsigned int amount);
 }; // class ClapTrap

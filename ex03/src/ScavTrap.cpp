@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:28:07 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 20:47:30 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/05/01 19:05:31 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,4 +134,4 @@ void ScavTrap::guardGate(void)
 }
 
 std::string const ScavTrap::DEFAULT_NAME = "__ScavTrap__";
-std::string const ScavTrap::PREFIX = "\033[46;30m" " ScavTrap " "\033[0m ";
+std::string const ScavTrap::PREFIX = "\033[46;30m" " ScavTrap " "\033[0m    ";

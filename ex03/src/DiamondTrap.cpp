@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:53:10 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 22:01:52 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/05/01 19:05:31 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap(void) :
-	ClapTrap(DiamondTrap::DEFAULT_NAME),
-	ScavTrap(),
-	FragTrap()
+	ClapTrap(DiamondTrap::DEFAULT_NAME + "_clap_name"),
+	ScavTrap(DiamondTrap::DEFAULT_NAME + "_clap_name"),
+	FragTrap(DiamondTrap::DEFAULT_NAME + "_clap_name"),
+	name(DiamondTrap::DEFAULT_NAME)
 {
 	std::cout
 		<< DiamondTrap::PREFIX
@@ -31,7 +32,10 @@ DiamondTrap::DiamondTrap(void) :
 }
 
 DiamondTrap::DiamondTrap(std::string const &name) :
-	ClapTrap(name)
+	ClapTrap(name + "_clap_name"),
+	ScavTrap(name + "_clap_name"),
+	FragTrap(name + "_clap_name"),
+	name(name)
 {
 	std::cout
 		<< DiamondTrap::PREFIX
@@ -47,7 +51,10 @@ DiamondTrap::DiamondTrap(std::string const &name) :
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &x) :
-	ClapTrap(x)
+	ClapTrap(x),
+	ScavTrap(x),
+	FragTrap(x),
+	name(x.name)
 {
 	std::cout
 		<< DiamondTrap::PREFIX
@@ -82,6 +89,7 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &x)
 		<< ")"
 		<< DiamondTrap::RESET
 		<< std::endl;
+	this->ClapTrap::name = x.ClapTrap::name;
 	this->name = x.name;
 	this->hitPoints = x.hitPoints;
 	this->energyPoints = x.energyPoints;
@@ -89,15 +97,16 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &x)
 	return (*this);
 }
 
-void DiamondTrap::highFiveGuys(void)
+void DiamondTrap::whoAmI(void)
 {
 	std::cout
-		<< DiamondTrap::BLUE
+		<< DiamondTrap::PREFIX
+		<< "clap_name: `"
+		<< this->ClapTrap::name
+		<< "`, name: "
 		<< this->name
-		<< " says: Guys?? High five?!"
-		<< DiamondTrap::RESET
 		<< std::endl;
 }
 
-std::string const DiamondTrap::DEFAULT_NAME = "__FragTrap__";
-std::string const DiamondTrap::PREFIX = "\033[41;30m" " DiamondTrap " "\033[0m ";
+std::string const DiamondTrap::DEFAULT_NAME = "__DiamondTrap__";
+std::string const DiamondTrap::PREFIX = "\033[42;30m" " DiamondTrap " "\033[0m ";

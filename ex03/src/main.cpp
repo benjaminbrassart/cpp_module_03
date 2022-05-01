@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:29:22 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 21:49:10 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/05/01 19:01:51 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 static void	_constructor_default0(void);
 static void	_constructor_default1(void);
@@ -30,18 +31,22 @@ static void	_attack1(void);
 static void	_attack2(void);
 static void	_attack3(void);
 static void	_attack4(void);
+static void	_attack5(void);
 static void	_repair0(void);
 static void	_repair1(void);
 static void	_repair2(void);
 static void	_repair3(void);
 static void	_repair4(void);
+static void	_repair5(void);
 static void	_damage0(void);
 static void	_damage1(void);
 static void	_damage2(void);
 static void	_damage3(void);
 static void	_damage4(void);
+static void	_damage5(void);
 static void	_guard(void);
 static void	_highfive(void);
+static void	_whoAmI(void);
 
 int	main(void)
 {
@@ -61,18 +66,22 @@ int	main(void)
 		TEST(_attack2)
 		TEST(_attack3)
 		TEST(_attack4)
+		TEST(_attack5)
 		TEST(_repair0)
 		TEST(_repair1)
 		TEST(_repair2)
 		TEST(_repair3)
 		TEST(_repair4)
+		TEST(_repair5)
 		TEST(_damage0)
 		TEST(_damage1)
 		TEST(_damage2)
 		TEST(_damage3)
 		TEST(_damage4)
+		TEST(_damage5)
 		TEST(_guard)
 		TEST(_highfive)
+		TEST(_whoAmI)
 	};
 	TEST_RUN();
 }
@@ -174,6 +183,13 @@ static void	_attack4(void)
 		c.attack("123");
 }
 
+static void	_attack5(void)
+{
+	DiamondTrap	c("blah");
+	for (int i = 0; i < 30; ++i)
+		c.attack("123");
+}
+
 static void	_repair0(void)
 {
 	ClapTrap c("hello");
@@ -213,6 +229,16 @@ static void	_repair3(void)
 static void	_repair4(void)
 {
 	FragTrap c("hello");
+
+	c.beRepaired(12);
+	c.takeDamage(44);
+	c.beRepaired(15);
+	c.beRepaired(1);
+}
+
+static void	_repair5(void)
+{
+	DiamondTrap c("blah");
 
 	c.beRepaired(12);
 	c.takeDamage(44);
@@ -264,6 +290,14 @@ static void	_damage4(void)
 	c.takeDamage(44);
 }
 
+static void	_damage5(void)
+{
+	DiamondTrap c("blah");
+
+	c.takeDamage(44);
+	c.takeDamage(44);
+}
+
 static void	_guard(void)
 {
 	ScavTrap c("hai");
@@ -276,4 +310,13 @@ static void	_highfive(void)
 	FragTrap c("hai");
 
 	c.highFiveGuys();
+}
+
+static void	_whoAmI(void)
+{
+	DiamondTrap c("blah");
+
+	c.whoAmI();
+	c = DiamondTrap();
+	c.whoAmI();
 }

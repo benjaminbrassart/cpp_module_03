@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:11:06 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/26 19:31:35 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/05/01 19:05:31 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 }
 
 std::string const ClapTrap::DEFAULT_NAME = "__ClapTrap__";
-std::string const ClapTrap::PREFIX = "\033[43;30m" " ClapTrap " "\033[0m ";
+std::string const ClapTrap::PREFIX = "\033[43;30m" " ClapTrap " "\033[0m    ";
 std::string const ClapTrap::RED = "\033[31m";
 std::string const ClapTrap::GREEN = "\033[37m";
 std::string const ClapTrap::BLUE = "\033[34m";

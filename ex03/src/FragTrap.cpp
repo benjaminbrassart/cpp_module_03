@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:28:07 by bbrassar          #+#    #+#             */
-/*   Updated: 2022/04/28 21:43:01 by bbrassar         ###   ########.fr       */
+/*   Updated: 2022/05/01 19:05:31 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,4 @@ void FragTrap::highFiveGuys(void)
 }
 
 std::string const FragTrap::DEFAULT_NAME = "__FragTrap__";
-std::string const FragTrap::PREFIX = "\033[41;30m" " FragTrap " "\033[0m ";
+std::string const FragTrap::PREFIX = "\033[41;30m" " FragTrap " "\033[0m    ";

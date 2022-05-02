@@ -1,85 +1,95 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 20:28:07 by bbrassar          #+#    #+#             */
+/*   Created: 2022/04/28 21:53:10 by bbrassar          #+#    #+#             */
 /*   Updated: 2022/05/01 19:05:31 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(void) :
-	ClapTrap()
+DiamondTrap::DiamondTrap(void) :
+	ClapTrap(DiamondTrap::DEFAULT_NAME + "_clap_name"),
+	ScavTrap(DiamondTrap::DEFAULT_NAME + "_clap_name"),
+	FragTrap(DiamondTrap::DEFAULT_NAME + "_clap_name"),
+	name(DiamondTrap::DEFAULT_NAME)
 {
 	std::cout
-		<< FragTrap::PREFIX
-		<< FragTrap::GREEN
+		<< DiamondTrap::PREFIX
+		<< DiamondTrap::GREEN
 		<< "Default constructor called"
-		<< FragTrap::RESET
+		<< DiamondTrap::RESET
 		<< std::endl;
-	this->name = FragTrap::DEFAULT_NAME;
+	this->name = DiamondTrap::DEFAULT_NAME;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
 }
 
-FragTrap::FragTrap(std::string const &name) :
-	ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string const &name) :
+	ClapTrap(name + "_clap_name"),
+	ScavTrap(name + "_clap_name"),
+	FragTrap(name + "_clap_name"),
+	name(name)
 {
 	std::cout
-		<< FragTrap::PREFIX
-		<< FragTrap::GREEN
+		<< DiamondTrap::PREFIX
+		<< DiamondTrap::GREEN
 		<< "Initialization constructor called (name: "
 		<< name
 		<< ")"
-		<< FragTrap::RESET
+		<< DiamondTrap::RESET
 		<< std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
 }
 
-FragTrap::FragTrap(FragTrap const &x) :
-	ClapTrap(x)
+DiamondTrap::DiamondTrap(DiamondTrap const &x) :
+	ClapTrap(x),
+	ScavTrap(x),
+	FragTrap(x),
+	name(x.name)
 {
 	std::cout
-		<< FragTrap::PREFIX
-		<< FragTrap::GREEN
+		<< DiamondTrap::PREFIX
+		<< DiamondTrap::GREEN
 		<< "Copy constructor called (name: "
 		<< x.name
 		<< ")"
-		<< FragTrap::RESET
+		<< DiamondTrap::RESET
 		<< std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
 }
 
-FragTrap::~FragTrap()
+DiamondTrap::~DiamondTrap()
 {
 	std::cout
-		<< FragTrap::PREFIX
-		<< FragTrap::GREEN
+		<< DiamondTrap::PREFIX
+		<< DiamondTrap::GREEN
 		<< "Destructor called"
-		<< FragTrap::RESET
+		<< DiamondTrap::RESET
 		<< std::endl;
 }
 
-FragTrap &FragTrap::operator=(FragTrap const &x)
+DiamondTrap &DiamondTrap::operator=(DiamondTrap const &x)
 {
 	std::cout
-		<< FragTrap::PREFIX
-		<< FragTrap::GREEN
+		<< DiamondTrap::PREFIX
+		<< DiamondTrap::GREEN
 		<< "Copy assignment operator called (name: "
 		<< x.name
 		<< ")"
-		<< FragTrap::RESET
+		<< DiamondTrap::RESET
 		<< std::endl;
+	this->ClapTrap::name = x.ClapTrap::name;
 	this->name = x.name;
 	this->hitPoints = x.hitPoints;
 	this->energyPoints = x.energyPoints;
@@ -87,15 +97,16 @@ FragTrap &FragTrap::operator=(FragTrap const &x)
 	return (*this);
 }
 
-void FragTrap::highFiveGuys(void)
+void DiamondTrap::whoAmI(void)
 {
 	std::cout
-		<< FragTrap::BLUE
+		<< DiamondTrap::PREFIX
+		<< "clap_name: `"
+		<< this->ClapTrap::name
+		<< "`, name: "
 		<< this->name
-		<< " says: Guys?? High five?!"
-		<< FragTrap::RESET
 		<< std::endl;
 }
 
-std::string const FragTrap::DEFAULT_NAME = "__FragTrap__";
-std::string const FragTrap::PREFIX = "\033[41;30m" " FragTrap " "\033[0m    ";
+std::string const DiamondTrap::DEFAULT_NAME = "__DiamondTrap__";
+std::string const DiamondTrap::PREFIX = "\033[42;30m" " DiamondTrap " "\033[0m ";
